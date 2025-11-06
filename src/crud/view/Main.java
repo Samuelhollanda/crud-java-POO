@@ -6,20 +6,17 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //Scanner scanner = Inp
-        Animal novoAnimal = new Animal("Josias", 21, "Dog");
-        novoAnimal.showInfo();
-        System.out.println("Test");
-        int op = 2;
-
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Type a option: ");
+        int op = scanner.nextInt();
         switch (op) {
             case 1:
-                System.out.println("Hello Word!!");
+                System.out.println("You chose an option 1.");
                 break;
             case 2:
-                System.out.println("Word Hello");
+                System.out.println("You chose an option 2.");
                 break;
+
         }
     }
 }

@@ -26,12 +26,15 @@ public class Animal {
         this.age = age;
     }
     public String getBreed() {
-        return breed;
+        return "breed";
     }
     public void setBreed(String breed) {
         this.breed = breed;
     }
-
+    @Override
+    public String toString() {
+        return "[" + getBreed() + "] Name: " + name + ", Age: " + age;
+    }
     //method test
     public void showInfo() {
         System.out.println("Your pet:");
