@@ -35,11 +35,4 @@ public class Animal {
     public String toString() {
         return "[" + getBreed() + "] Name: " + name + ", Age: " + age;
     }
-    //method test
-    public void showInfo() {
-        System.out.println("Your pet:");
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Breed: " + breed);
-    }
 }
