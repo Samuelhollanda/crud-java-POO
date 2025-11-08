@@ -50,7 +50,14 @@ public class Main {
                     System.out.println("Cachorro cadastrado");
                     break;
                 case 3:
-                    System.out.println("3");
+                    System.out.println("ANIMAIS CADASTRADOS");
+                    var list = controller.listAnimal();
+                    if (list.isEmpty())
+                        System.out.println("Nenhum registro");
+                    else {
+                        for (int i  = 0; i < list.size(); i++)
+                            System.out.println(i + " - " + list.get(i));
+                    }
                     break;
                 case 4:
                     System.out.println("4");
