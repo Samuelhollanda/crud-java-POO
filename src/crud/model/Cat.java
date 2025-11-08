@@ -3,7 +3,7 @@ package crud.model;
 public class Cat extends Animal {
     private String color;
 
-    public Cat(String name, int age, String breed, String color){
+    public Cat(String name, int age, String breed, String color) {
         super(name, age, breed);
         this.color = color;
     }

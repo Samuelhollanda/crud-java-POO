@@ -1,7 +1,9 @@
 package crud.view;
 
 import crud.model.*;
+
 import java.util.Scanner;
+
 import crud.controller.AnimalController;
 
 
@@ -55,7 +57,7 @@ public class Main {
                     if (list.isEmpty())
                         System.out.println("Nenhum registro");
                     else {
-                        for (int i  = 0; i < list.size(); i++)
+                        for (int i = 0; i < list.size(); i++)
                             System.out.println(i + " - " + list.get(i));
                     }
                     break;

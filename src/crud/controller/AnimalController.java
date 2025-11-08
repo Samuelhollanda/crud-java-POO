@@ -1,6 +1,7 @@
 package crud.controller;
 
 import crud.model.Animal;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class AnimalController {
         }
         return false;
     }
+
     //DELETE ANIMAL
     public boolean deleteAnimalById(int id) {
         if (id >= 0 && id < animals.size()) {
