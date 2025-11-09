@@ -1,8 +1,9 @@
 package crud.model;
 
-import java.sql.SQLOutput;
 
-public class Animal {
+import java.util.Scanner;
+
+public abstract class Animal {
     private String name;
     private int age;
     private String breed;
@@ -36,6 +37,8 @@ public class Animal {
     public void setBreed(String breed) {
         this.breed = breed;
     }
+
+    public abstract void update(Scanner sc);
 
     @Override
     public String toString() {

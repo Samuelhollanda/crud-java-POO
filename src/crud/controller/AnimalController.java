@@ -4,9 +4,10 @@ import crud.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AnimalController {
-    private List<Animal> animals = new ArrayList<>();
+    final List<Animal> animals = new ArrayList<>();
 
     //CREATE ANIMAL
     public void addAnimal(Animal animal) {
@@ -19,12 +20,9 @@ public class AnimalController {
     }
 
     //UPDATE ANIMALS
-    public boolean updateAnimal(int id, String newName, int newAge, String newBreed) {
+    public boolean updateAnimal(int id, Scanner sc) {
         if (id >= 0 && id < animals.size()) {
-            Animal a = animals.get(id);
-            a.setName(newName);
-            a.setAge(newAge);
-            a.setBreed(newBreed);
+            animals.get(id).update(sc);
             return true;
         }
         return false;

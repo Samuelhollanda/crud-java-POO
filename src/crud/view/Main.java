@@ -2,6 +2,7 @@ package crud.view;
 
 import crud.model.*;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 import crud.controller.AnimalController;
@@ -62,7 +63,15 @@ public class Main {
                     }
                     break;
                 case 4:
-                    System.out.println("4");
+                    System.out.println("ATUALIZAR INFORMAÇÕES");
+                    System.out.println("Digite o índice do animal: ");
+                    int id = sc.nextInt();
+                    sc.nextLine();
+
+                    if (controller.updateAnimal(id, sc))
+                        System.out.println("ATUALIZADO!");
+                    else
+                        System.out.println("INDICE INVÁLIDO!");
                     break;
                 case 5:
                     System.out.println("5");
@@ -77,5 +86,3 @@ public class Main {
         } while (op != 0);
     }
 }
-//este é um comentário para teste
-//este é o teste dois 

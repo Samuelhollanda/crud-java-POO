@@ -1,5 +1,7 @@
 package crud.model;
 
+import java.util.Scanner;
+
 public class Cat extends Animal {
     private String color;
 
@@ -14,6 +16,22 @@ public class Cat extends Animal {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public void update(Scanner sc) {
+        System.out.println("Novo nome: ");
+        setName(sc.nextLine());
+
+        System.out.println("Nova idade: ");
+        setAge(sc.nextInt());
+        sc.nextLine();
+
+        System.out.println("Nova raça: ");
+        setBreed(sc.nextLine());
+
+        System.out.println("Nova cor: ");
+        setColor(sc.nextLine());
     }
 
     @Override
