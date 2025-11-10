@@ -1,20 +1,14 @@
 package crud.view;
-
 import crud.model.*;
-
-import java.sql.SQLOutput;
 import java.util.Scanner;
-
 import crud.controller.AnimalController;
-
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AnimalController controller = new AnimalController();
-        int op;
+        int op, age, id;
         String name, breed, color;
-        int age;
 
         do {
             System.out.println("--CADASTRO DE ANIMAIS--");
@@ -65,7 +59,7 @@ public class Main {
                 case 4:
                     System.out.println("ATUALIZAR INFORMAÇÕES");
                     System.out.println("Digite o índice do animal: ");
-                    int id = sc.nextInt();
+                    id = sc.nextInt();
                     sc.nextLine();
 
                     if (controller.updateAnimal(id, sc))
@@ -74,7 +68,14 @@ public class Main {
                         System.out.println("INDICE INVÁLIDO!");
                     break;
                 case 5:
-                    System.out.println("5");
+                    System.out.println("Digite o índice do animal: ");
+                    id = sc.nextInt();
+                    if (id <= controller.listAnimal().size()) {
+                        controller.deleteAnimalById(id);
+                        System.out.println("ANIMAL REMOVIDO!!!");
+                    } else {
+                        System.out.println("Animal não cadastrado!!!");
+                    }
                     break;
                 case 0:
                     System.out.println("0");
