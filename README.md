@@ -102,14 +102,14 @@ Possui verificação de índices e retorno booleano para operações sensíveis.
 ## 🖥️ Interface Console (CLI) – Main.java
 
 O menu oferece:
-
+```
 1 - Cadastrar Gato
 2 - Cadastrar Cachorro
 3 - Listar animais
 4 - Atualizar animal
 5 - Remover animal
 0 - Sair
-
+```
 
 **Características:**
 - Atualização usa **polimorfismo**: `animal.update(scanner)`
