@@ -3,7 +3,7 @@ package crud.view;
 import crud.model.*;
 import java.util.Scanner;
 import crud.controller.AnimalController;
-import java.util.List; // Importe a classe List
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,10 +19,10 @@ public class Main {
             System.out.println("3 - Listar animais");
             System.out.println("4 - Atualizar animais");
             System.out.println("5 - Remover animal");
-            System.out.println("0 - Sair"); // Adicionei a opção de sair
+            System.out.println("0 - Sair");
             System.out.println("Digite uma opção: ");
             op = sc.nextInt();
-            sc.nextLine(); // Limpar o buffer
+            sc.nextLine();
 
             switch (op) {
                 case 1:
@@ -51,12 +51,12 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("--- ANIMAIS CADASTRADOS ---");
-                    List<Animal> list = controller.listAnimal(); // Use a interface List
+                    List<Animal> list = controller.listAnimal();
                     if (list.isEmpty())
                         System.out.println("Nenhum registro");
                     else {
                         for (int i = 0; i < list.size(); i++)
-                            System.out.println(i + " - " + list.get(i)); // 'i' é o ID/índice
+                            System.out.println(i + " - " + list.get(i));
                     }
                     System.out.println("-----------------------------");
                     break;
@@ -64,20 +64,13 @@ public class Main {
                     System.out.println("ATUALIZAR INFORMAÇÕES");
                     System.out.println("Digite o índice (ID) do animal: ");
                     id = sc.nextInt();
-                    sc.nextLine(); // Limpar o buffer
+                    sc.nextLine();
 
-                    // --- INÍCIO DA CORREÇÃO ---
-
-                    // 1. Pegar a lista para verificar o ID e obter o animal
                     List<Animal> listToUpdate = controller.listAnimal();
 
-                    // 2. Verificar se o ID é válido
                     if (id >= 0 && id < listToUpdate.size()) {
-                        // 3. Pegar o animal específico
                         Animal animalParaAtualizar = listToUpdate.get(id);
 
-                        // 4. Chamar o método update() DO PRÓPRIO ANIMAL
-                        // Ele usará o Scanner (polimorfismo)
                         System.out.println("--- Atualizando dados para: " + animalParaAtualizar.getName() + " ---");
                         animalParaAtualizar.update(sc);
 
@@ -85,16 +78,13 @@ public class Main {
                     } else {
                         System.out.println("INDICE INVÁLIDO!");
                     }
-                    // --- FIM DA CORREÇÃO ---
                     break;
                 case 5:
                     System.out.println("REMOVER ANIMAL");
                     System.out.println("Digite o índice (ID) do animal: ");
                     id = sc.nextInt();
-                    sc.nextLine(); // Limpar o buffer
+                    sc.nextLine();
 
-                    // --- AJUSTE DE LÓGICA ---
-                    // Chame o método delete e verifique seu retorno booleano
                     if (controller.deleteAnimalById(id)) {
                         System.out.println("ANIMAL REMOVIDO!!!");
                     } else {
@@ -108,7 +98,6 @@ public class Main {
                     System.out.println("Opção inválida!");
                     break;
             }
-            // Adiciona uma pausa para o usuário ler a saída
             if (op != 0) {
                 System.out.println("\nPressione Enter para continuar...");
                 sc.nextLine();
@@ -116,6 +105,6 @@ public class Main {
 
         } while (op != 0);
 
-        sc.close(); // Fechar o Scanner ao sair
+        sc.close();
     }
 }

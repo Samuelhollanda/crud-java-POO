@@ -24,7 +24,6 @@ public class AnimalController {
         return false;
     }
 
-    // Novo método para atualização a partir da GUI
     public boolean updateAnimal(int id, String name, Integer age, String breed, String color) {
         if (id < 0 || id >= animals.size()) return false;
         Animal a = animals.get(id);
