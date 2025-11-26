@@ -1,101 +1,104 @@
-🐾 CRUD de Cadastro de Animais – Java
+# 🐾 CRUD de Cadastro de Animais – Java
 
-Um sistema simples de CRUD (Create, Read, Update, Delete) desenvolvido em Java, utilizando POO, MVC e interfaces tanto em Console (CLI) quanto Swing (GUI).
-Permite cadastrar, listar, atualizar e remover Gatos e Cachorros.
+Um sistema simples de **CRUD (Create, Read, Update, Delete)** desenvolvido em **Java**, utilizando conceitos de **POO**, **herança**, **polimorfismo** e o padrão **MVC**.  
+Possui duas interfaces:  
+- **Console (CLI)**  
+- **Interface gráfica (Swing)**  
 
-📁 Estrutura do Projeto
+O sistema permite cadastrar, listar, atualizar e remover **Gatos** e **Cachorros**.
+
+---
+
+## 📁 Estrutura do Projeto
+
 src/
- └── crud/
-     ├── controller/
-     │     └── AnimalController.java
-     ├── model/
-     │     ├── Animal.java
-     │     ├── Cat.java
-     │     └── Dog.java
-     └── view/
-           ├── Main.java
-           └── MainGui.java
+└── crud/
+├── controller/
+│ └── AnimalController.java
+├── model/
+│ ├── Animal.java
+│ ├── Cat.java
+│ └── Dog.java
+└── view/
+├── Main.java
+└── MainGui.java
 
-🧱 Arquitetura (MVC)
-Model
 
-Contém as classes que representam os animais e suas regras:
+---
 
-Animal — classe abstrata base
+## 🧱 Arquitetura (MVC)
 
-Cat — possui atributo extra color
+### **Model**
+Representa os dados e regras de negócio:
+- `Animal` — classe abstrata base
+- `Cat` — adiciona atributo `color`
+- `Dog`
 
-Dog
+### **Controller**
+Gerencia a lista de animais e as operações CRUD:
+- `AnimalController`
 
-Controller
-
-Gerencia o CRUD em memória:
-
-AnimalController
-
-View
-
+### **View**
 Interface com o usuário:
+- `Main` → Console  
+- `MainGui` → Swing (gráfica)
 
-Main → Interface por console
+---
 
-MainGui → Interface Swing (gráfica)
+## 🐶🐱 Model (Detalhes das Classes)
 
-🐶🐱 Model (Detalhes das Classes)
-Animal.java
+### **Animal.java**
+Classe abstrata para todos os animais.
 
-Classe abstrata com:
+**Atributos:**
+- `name`
+- `age`
+- `breed`
 
-name
+**Métodos:**
+- Getters e setters
+- `public abstract void update(Scanner sc)`
+- `toString()` personalizado
 
-age
+---
 
-breed
+### **Cat.java**
+Herda de `Animal`.
 
-Método abstrato update(Scanner sc)
+**Atributos extras:**
+- `color`
 
-toString() formatado
+**Métodos sobrescritos:**
+- `update()` → atualiza nome, idade, raça e cor
+- `toString()` → inclui a cor
 
-Cat.java
+---
 
-Herda Animal
-Adiciona:
+### **Dog.java**
+Herda de `Animal`.
 
-color
+**Métodos sobrescritos:**
+- `update()` → atualiza nome, idade e raça
 
-Sobrescreve:
+---
 
-update() perguntando nome, idade, raça e cor
+## 🧠 Controller – AnimalController.java
 
-Dog.java
+Gerencia a lista de animais **em memória**.
 
-Herda Animal
-Sobrescreve:
+**Métodos principais:**
+- `addAnimal(Animal a)`  
+- `listAnimal()`  
+- `deleteAnimalById(int id)`  
+- `updateAnimal(id, name, age, breed, color)`  
 
-update() perguntando nome, idade e raça
+Possui verificação de índices e retorno booleano para operações sensíveis.
 
-🧠 Controller
-AnimalController.java
+---
 
-Gerencia a lista interna de animais.
+## 🖥️ Interface Console (CLI) – Main.java
 
-Métodos principais:
-
-addAnimal(Animal a)
-
-listAnimal()
-
-deleteAnimalById(int id)
-
-updateAnimal(id, name, age, breed, color)
-
-A lista fica em memória (sem banco ou arquivo).
-
-🖥️ Interface Console (CLI)
-
-Arquivo: Main.java
-
-Menu principal:
+O menu oferece:
 
 1 - Cadastrar Gato
 2 - Cadastrar Cachorro
@@ -105,51 +108,71 @@ Menu principal:
 0 - Sair
 
 
-Destaques:
+**Características:**
+- Atualização usa **polimorfismo**: `animal.update(scanner)`
+- ID do animal é o **índice da lista**
+- Previne entradas inválidas
 
-Atualização usa polimorfismo com animal.update(sc)
+---
 
-ID do animal é o índice na lista
+## 🪟 Interface Gráfica (Swing) – MainGui.java
 
-Previne índice inválido
+Interface gráfica simples, usando:
+- `JFrame`
+- `JPanel`
+- `JList`
+- `DefaultListModel`
+- `JOptionPane`
 
-🪟 Interface Gráfica (GUI)
+**Funções:**
+- Adicionar Gato
+- Adicionar Cachorro
+- Atualizar
+- Remover
+- Recarregar lista
 
-Arquivo: MainGui.java
+Tudo é manipulado pelo `AnimalController`.
 
-Funções principais:
+---
 
-Adicionar Gato
+## 🔄 Funcionamento do CRUD
 
-Adicionar Cachorro
+| Operação | Console (CLI) | GUI |
+|----------|----------------|-----|
+| Criar | Entradas pelo teclado | Formulários `JOptionPane` |
+| Ler | Exibe lista no console | Lista `JList` |
+| Atualizar | `animal.update(sc)` (polimorfismo) | Controller + formulários |
+| Remover | `deleteAnimalById(id)` | Botão de deletar |
 
-Atualizar Animal
+---
 
-Remover
+## 🧪 Possíveis Melhorias
+- Adicionar persistência (arquivo ou SQLite)
+- Criar IDs únicos (UUID)
+- Validação de campos mais robusta
+- Adicionar outros tipos de animais
+- Criar testes unitários (JUnit)
 
-Recarregar Lista
+---
 
-Tecnologias:
+## 🚀 Como Executar o Projeto
 
-JFrame, JPanel, JList, DefaultListModel, JOptionPane
-
-Tudo é manipulado via controller.
-
-🔄 Funcionamento do CRUD
-Operação	CLI	GUI
-Criar	Teclado	Formulários (JOptionPane)
-Ler	Listagem no console	JList atualizada
-Atualizar	update() polimórfico	Atualização via controller
-Deletar	Com índice	Botão de remover
+### ▶️ Executar versão Console (CLI)
 
 
-🚀 Como Executar
-▶️ Console (CLI)
+
 cd src
 javac crud/**/*.java
 java crud.view.Main
 
-🪟 Interface Gráfica (GUI)
+
+### 🪟 Executar versão gráfica (GUI)
+
+
+
 cd src
 javac crud/**/*.java
 java crud.view.MainGui
+
+
+---
