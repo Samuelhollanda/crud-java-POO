@@ -11,17 +11,20 @@ O sistema permite cadastrar, listar, atualizar e remover **Gatos** e **Cachorros
 
 ## 📁 Estrutura do Projeto
 
+```
 src/
-└── crud/
-├── controller/
-│ └── AnimalController.java
-├── model/
-│ ├── Animal.java
-│ ├── Cat.java
-│ └── Dog.java
-└── view/
-├── Main.java
-└── MainGui.java
+ └── crud/
+     ├── controller/
+     │     └── AnimalController.java
+     ├── model/
+     │     ├── Animal.java
+     │     ├── Cat.java
+     │     └── Dog.java
+     └── view/
+           ├── Main.java
+           └── MainGui.java
+```
+
 
 
 ---
