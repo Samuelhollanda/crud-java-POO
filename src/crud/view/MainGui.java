@@ -1,4 +1,3 @@
-// src/crud/view/MainGui.java
 package crud.view;
 
 import crud.controller.AnimalController;
