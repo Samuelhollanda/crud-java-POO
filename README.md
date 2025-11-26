@@ -153,20 +153,19 @@ Tudo é manipulado pelo `AnimalController`.
 
 ### ▶️ Executar versão Console (CLI)
 
-
-
+```
 cd src
 javac crud/**/*.java
 java crud.view.Main
-
+```
 
 ### 🪟 Executar versão gráfica (GUI)
 
 
-
+```
 cd src
 javac crud/**/*.java
 java crud.view.MainGui
-
+```
 
 ---
