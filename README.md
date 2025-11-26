@@ -149,15 +149,6 @@ Tudo é manipulado pelo `AnimalController`.
 
 ---
 
-## 🧪 Possíveis Melhorias
-- Adicionar persistência (arquivo ou SQLite)
-- Criar IDs únicos (UUID)
-- Validação de campos mais robusta
-- Adicionar outros tipos de animais
-- Criar testes unitários (JUnit)
-
----
-
 ## 🚀 Como Executar o Projeto
 
 ### ▶️ Executar versão Console (CLI)
