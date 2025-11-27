@@ -1,8 +1,11 @@
 package crud.view;
 
 import crud.model.*;
+
 import java.util.Scanner;
+
 import crud.controller.AnimalController;
+
 import java.util.List;
 
 public class Main {
